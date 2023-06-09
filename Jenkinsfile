@@ -19,8 +19,8 @@ pipeline{
             steps{ 
                
                 
-                sh 'cd ProdEnvironment'
-               sh ' terraform init'
+                sh 'cd ProdEnvironment && terraform init'
+             
                 
             }
         }
@@ -28,7 +28,7 @@ pipeline{
         stage('Terraform plan'){
             steps{
                
-                sh '/ProdEnvironment/terraform plan -out main.tfplan'
+                sh 'cd ProdEnvironment && terraform plan -out main.tfplan'
                 
             }
         }
@@ -37,7 +37,7 @@ pipeline{
         stage('Terraform apply'){
             steps{
                
-                sh '/ProdEnvironment/ terraform apply main.tfplan' //-auto-approve
+                sh 'cd ProdEnvironment && terraform apply main.tfplan' //-auto-approve
                 
             }
     }
