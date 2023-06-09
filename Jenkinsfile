@@ -19,7 +19,8 @@ pipeline{
             steps{ 
                
                 
-                sh '/ProdEnvironment/ terraform init'
+                sh 'cd ProdEnvironment'
+               sh ' terraform init'
                 
             }
         }
