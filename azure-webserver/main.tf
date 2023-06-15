@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "webserver" {
-   name = "nginx-servertomtest2"
+   name = "Terrasam"
    location = var.location
 }
 
@@ -61,7 +61,7 @@ resource "azurerm_public_ip" "webserver_public_ip" {
 }
 
 resource "azurerm_network_interface" "webserver" {
-   name = "nginx-interfacetom"
+   name = "interface"
    location = azurerm_resource_group.webserver.location
    resource_group_name = azurerm_resource_group.webserver.name
 
@@ -75,9 +75,9 @@ resource "azurerm_network_interface" "webserver" {
    depends_on = [azurerm_resource_group.webserver]
 }
 
-resource "azurerm_linux_virtual_machine" "nginx" {
+resource "azurerm_linux_virtual_machine" "vm1" {
    size = var.instance_size
-   name = "nginx-webserver"
+   name = "vm1-webserver"
    resource_group_name = azurerm_resource_group.webserver.name
    location = azurerm_resource_group.webserver.location
    #custom_data = filebase64(".terraform/modules/azure-webserver/azure-webserver/init-script.sh")
@@ -97,11 +97,11 @@ resource "azurerm_linux_virtual_machine" "nginx" {
 
    computer_name = "nginx"
    admin_username = "adminuser"
-   admin_password = "Faizan@bashir.123"
+   admin_password = "H1T8POVN21D4EE7Y$"
    disable_password_authentication = false
 
    os_disk {
-       name = "nginxdisk01"
+       name = "disk01"
        caching = "ReadWrite"
        #create_option = "FromImage"
        storage_account_type = "Standard_LRS"
