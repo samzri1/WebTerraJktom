@@ -18,7 +18,7 @@ provider "azurerm" {
 
 
 module "azure-webserver" {
-    source = "github.com/samzri1/WebTerraJktom/"
+    source = "github.com/samzri1/WebTerraJktom.git"
     instance_size = var.instance_size
     location = var.location
     environment = var.environment
